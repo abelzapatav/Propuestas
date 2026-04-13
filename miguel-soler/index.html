@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="Propuesta comercial OCO AI para Miguel Soler"/>
+  <title>Propuesta — Miguel Soler | OCO AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+:root{
+  --bg:#010806;--s1:#162c20;--s2:#080f0a;--s3:#1e3829;--s4:#2a4838;
+  --mint:#2ee8a0;--mint-8:rgba(46,232,160,.08);--mint-15:rgba(46,232,160,.15);
+  --mint-30:rgba(46,232,160,.30);--mint-50:rgba(46,232,160,.50);
+  --glow-sm:0 0 28px rgba(46,232,160,.30);--glow-md:0 0 60px rgba(46,232,160,.38);
+  --glow-lg:0 0 120px rgba(46,232,160,.20);
+  --t1:#ffffff;--t2:rgba(255,255,255,.84);--t3:rgba(255,255,255,.48);
+  --red:#ef4444;--red-bg:rgba(239,68,68,.13);--red-bd:rgba(239,68,68,.38);--red-t:rgba(252,165,165,.75);
+  --amb:#f59e0b;--amb-bg:rgba(245,158,11,.12);--amb-bd:rgba(245,158,11,.34);
+  --ease:cubic-bezier(.16,1,.3,1);--r:16px;
+}
+body{
+  font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+  background:var(--bg);color:var(--t1);
+  -webkit-font-smoothing:antialiased;line-height:1.65;
+  background-image:radial-gradient(ellipse 65% 32% at 50% 0%,rgba(46,232,160,.07) 0%,transparent 70%);
+}
+::selection{background:rgba(46,232,160,.28);color:#010806}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--s3);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--mint-30)}
+#prog{
+  position:fixed;top:0;left:0;height:2px;width:0;z-index:700;
+  background:linear-gradient(90deg,var(--mint),rgba(46,232,160,.45));
+  box-shadow:var(--glow-sm);transition:width .08s linear;border-radius:0 2px 2px 0;
+}
+.nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(1,8,6,.90);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(46,232,160,.10);padding:.9rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav::after{
+  content:'';position:absolute;bottom:-1px;left:8%;right:8%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--mint-30),transparent);
+}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-dot{
+  width:38px;height:38px;flex-shrink:0;border-radius:11px;
+  background:linear-gradient(145deg,#0f2c1f,#010806);border:1px solid var(--mint-30);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 18px rgba(46,232,160,.14);overflow:hidden;
+}
+.nav-dot img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}
+.nav-name{
+  font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;
+  color:var(--t1);letter-spacing:.07em;line-height:1;text-transform:uppercase;
+}
+.nav-tagline{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--t3);margin-top:3px;letter-spacing:.04em}
+.nav-badge{
+  font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--mint);background:var(--mint-8);
+  border:1px solid var(--mint-30);padding:5px 14px;border-radius:20px;
+}
+.page{max-width:880px;margin:0 auto;padding:2.75rem 1.25rem 9rem}
+.hero{
+  position:relative;overflow:hidden;border-radius:22px;
+  padding:3.75rem 3rem 3rem;margin-bottom:2.75rem;border:1px solid var(--mint-15);
+  background:
+    radial-gradient(ellipse 55% 65% at 88% 18%,rgba(46,232,160,.14) 0%,transparent 52%),
+    radial-gradient(ellipse 42% 55% at 12% 82%,rgba(46,232,160,.09) 0%,transparent 55%),
+    var(--s1);
+  box-shadow:0 0 0 1px rgba(46,232,160,.05),0 28px 80px rgba(0,0,0,.75);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.055) 3px,rgba(0,0,0,.055) 4px);
+}
+.hero-dots{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(circle,rgba(46,232,160,.09) 1px,transparent 1px);
+  background-size:30px 30px;
+  mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,rgba(0,0,0,.20) 0%,transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,rgba(0,0,0,.20) 0%,transparent 100%);
+}
+.hero-orb1{
+  position:absolute;top:-80px;right:-55px;z-index:0;pointer-events:none;
+  width:380px;height:380px;
+  background:radial-gradient(circle,rgba(46,232,160,.13) 0%,transparent 65%);
+  animation:orb1 9s ease-in-out infinite;
+}
+.hero-orb2{
+  position:absolute;bottom:-70px;left:-55px;z-index:0;pointer-events:none;
+  width:280px;height:280px;
+  background:radial-gradient(circle,rgba(46,232,160,.08) 0%,transparent 65%);
+  animation:orb2 11s ease-in-out infinite;
+}
+@keyframes orb1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-18px,14px) scale(1.06)}}
+@keyframes orb2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(14px,-18px) scale(1.09)}}
+.hero-live,.hero-title,.hero-line,.hero-sub,.meta-grid,.hero-cta{position:relative;z-index:1}
+.hero-live{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--mint);background:var(--mint-8);
+  border:1px solid var(--mint-30);padding:5px 14px;border-radius:20px;margin-bottom:1.75rem;
+}
+.pulse{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--mint);box-shadow:0 0 8px rgba(46,232,160,.65);
+  animation:pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.28;transform:scale(.68)}}
+.hero-title{
+  font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:900;
+  color:var(--t1);line-height:1.05;letter-spacing:.01em;text-transform:uppercase;
+  margin-bottom:.65rem;max-width:620px;
+}
+.hero-title em{color:var(--mint);font-style:normal;text-shadow:0 0 42px rgba(46,232,160,.55)}
+.hero-line{
+  width:64px;height:2.5px;background:var(--mint);
+  box-shadow:var(--glow-sm);margin-bottom:1.5rem;border-radius:2px;
+}
+.hero-sub{
+  font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--t3);
+  margin-bottom:2.25rem;letter-spacing:.05em;
+}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:2.1rem}
+.mc{
+  background:rgba(1,8,6,.55);border:1px solid rgba(46,232,160,.12);
+  border-radius:12px;padding:.9rem 1rem;transition:background .2s,border-color .2s;cursor:default;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+}
+.mc:hover{background:rgba(46,232,160,.07);border-color:var(--mint-30)}
+.ml{
+  font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;
+  color:var(--mint);opacity:.6;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;
+}
+.mv{font-size:13px;font-weight:600;color:var(--t1);line-height:1.3}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid var(--mint-30);color:var(--mint);background:var(--mint-8);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;
+  padding:10px 22px;border-radius:9px;text-decoration:none;cursor:pointer;letter-spacing:.02em;
+  transition:background .2s,border-color .2s,box-shadow .2s;
+}
+.hero-cta:hover{background:rgba(46,232,160,.14);border-color:var(--mint-50);box-shadow:0 0 32px rgba(46,232,160,.22)}
+.hero-cta svg{width:14px;height:14px;flex-shrink:0;opacity:.75}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .75s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.acc{
+  background:var(--s1);border:1px solid rgba(46,232,160,.16);border-radius:var(--r);
+  margin-bottom:16px;overflow:hidden;
+  box-shadow:inset 4px 0 0 rgba(46,232,160,.38),0 2px 24px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.06);
+  opacity:0;transform:translateY(26px);
+  transition:opacity .6s ease calc(var(--ai,0)*.07s),transform .7s var(--ease) calc(var(--ai,0)*.07s),border-color .28s ease 0s,box-shadow .28s ease 0s;
+}
+.acc.in{opacity:1;transform:none;transition-delay:0s}
+.acc:hover{
+  border-color:var(--mint-30);
+  box-shadow:inset 4px 0 0 rgba(46,232,160,.60),0 4px 28px rgba(0,0,0,.65),0 0 60px rgba(46,232,160,.06);
+}
+.acc--open{
+  border-color:var(--mint-50)!important;
+  box-shadow:inset 5px 0 0 var(--mint),inset 5px 0 22px rgba(46,232,160,.20),0 0 0 1px rgba(46,232,160,.08),0 28px 80px rgba(0,0,0,.85),var(--glow-lg)!important;
+}
+.acc-hd{
+  width:100%;background:none;border:none;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 1.4rem;cursor:pointer;gap:14px;text-align:left;transition:background .18s ease;
+}
+.acc-hd:hover{background:rgba(255,255,255,.04)}
+.acc--open .acc-hd{background:linear-gradient(90deg,rgba(46,232,160,.14) 0%,rgba(46,232,160,.05) 45%,transparent 75%)}
+.acc-l{display:flex;align-items:center;gap:13px;flex:1;min-width:0}
+.acc-ico{
+  width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;border:1px solid transparent;transition:border-color .22s ease;
+}
+.acc-hd:hover .acc-ico{border-color:rgba(255,255,255,.08)}
+.acc-num{
+  font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;
+  color:var(--mint);opacity:.45;letter-spacing:.18em;text-transform:uppercase;margin-bottom:3px;
+}
+.acc--open .acc-num{opacity:.90}
+.acc-title{
+  font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--t1);line-height:1.15;
+}
+.acc-sub{font-size:11px;color:var(--t3);margin-top:2px}
+.chev{width:18px;height:18px;color:var(--t3);transition:transform .4s cubic-bezier(.4,0,.2,1),color .22s ease;flex-shrink:0}
+.acc-hd[aria-expanded="true"] .chev{transform:rotate(180deg);color:var(--mint)}
+.acc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .44s cubic-bezier(.4,0,.2,1)}
+.acc-body.open{grid-template-rows:1fr}
+.acc-inner{overflow:hidden}
+.acc-content{background:var(--s2);border-top:2px solid rgba(46,232,160,.28);padding:2.25rem 1.75rem 3rem}
+.acc-body.open .acc-inner{animation:swipe-in .5s var(--ease) .06s both}
+@keyframes swipe-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.bp{
+  font-size:14px;color:var(--t2);line-height:1.8;margin-bottom:.85rem;
+  opacity:0;transform:translateY(8px);transition:opacity .4s ease .10s,transform .45s var(--ease) .10s;
+}
+.bp:last-child{margin-bottom:0}
+.bp strong,.acc-content strong{
+  color:var(--mint);font-weight:700;
+  text-shadow:0 0 6px rgba(46,232,160,.85),0 0 20px rgba(46,232,160,.55),0 0 40px rgba(46,232,160,.25);
+}
+.acc-body.open .bp{opacity:1;transform:none}
+.sh{
+  font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;
+  color:var(--mint);opacity:0;text-transform:uppercase;letter-spacing:.16em;
+  margin:1.75rem 0 .9rem;display:flex;align-items:center;gap:12px;
+  transition:opacity .4s ease .18s;
+  text-shadow:0 0 18px rgba(46,232,160,.70),0 0 36px rgba(46,232,160,.35);
+}
+.sh::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--mint-30),transparent)}
+.acc-body.open .sh{opacity:.60}
+.blist{list-style:none;padding:0;margin:.25rem 0 .75rem}
+.bi{display:flex;align-items:flex-start;gap:12px;font-size:13.5px;color:var(--t2);line-height:1.75;margin-bottom:.5rem}
+.bi::before{
+  content:'';width:5px;height:5px;border-radius:50%;background:var(--mint);opacity:.90;
+  flex-shrink:0;margin-top:9px;box-shadow:0 0 8px rgba(46,232,160,.75),0 0 18px rgba(46,232,160,.40);
+}
+.nlist{list-style:none;counter-reset:ni;padding:0;margin:.5rem 0 .75rem}
+.ni{
+  counter-increment:ni;display:flex;align-items:flex-start;gap:14px;
+  font-size:14px;color:var(--t2);line-height:1.75;margin-bottom:.85rem;
+  opacity:0;transform:translateX(-16px);transition:opacity .4s ease,transform .45s var(--ease);
+}
+.ni::before{
+  content:counter(ni);min-width:28px;height:28px;background:var(--mint-8);
+  border:1px solid var(--mint-30);color:var(--mint);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;flex-shrink:0;margin-top:2px;
+  box-shadow:0 0 12px rgba(46,232,160,.45),0 0 24px rgba(46,232,160,.20);
+  text-shadow:0 0 10px rgba(46,232,160,.80);
+}
+.acc-body.open .ni:nth-child(1){opacity:1;transform:none;transition-delay:.12s}
+.acc-body.open .ni:nth-child(2){opacity:1;transform:none;transition-delay:.20s}
+.acc-body.open .ni:nth-child(3){opacity:1;transform:none;transition-delay:.28s}
+.acc-body.open .ni:nth-child(4){opacity:1;transform:none;transition-delay:.36s}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:1.75rem 0}
+.pain-card{
+  background:var(--red-bg);border:1.5px solid var(--red-bd);border-radius:14px;padding:1.35rem;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+  opacity:0;transform:translateY(20px) scale(.96);
+  transition:opacity .45s ease,transform .5s var(--ease),box-shadow .22s ease,border-color .22s ease;
+}
+.acc-body.open .pain-card:nth-child(1){opacity:1;transform:none;transition-delay:.12s}
+.acc-body.open .pain-card:nth-child(2){opacity:1;transform:none;transition-delay:.21s}
+.acc-body.open .pain-card:nth-child(3){opacity:1;transform:none;transition-delay:.30s}
+.pain-card:hover{border-color:rgba(239,68,68,.50);box-shadow:0 8px 28px rgba(239,68,68,.13)}
+.pain-num{
+  font-family:'Barlow Condensed',sans-serif;font-size:80px;font-weight:900;
+  letter-spacing:-.02em;color:var(--red-t);line-height:.92;margin-bottom:.6rem;
+  text-shadow:0 0 40px rgba(239,68,68,.35),0 0 80px rgba(239,68,68,.18);
+}
+.pain-text{font-size:12.5px;color:var(--t2);line-height:1.65}
+.phase-list{display:flex;flex-direction:column;margin:.5rem 0}
+.phase-row{
+  display:flex;align-items:flex-start;gap:14px;padding:13px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  opacity:0;transform:translateX(-12px);transition:opacity .4s ease,transform .45s var(--ease);
+}
+.phase-row:last-child{border-bottom:none}
+.acc-body.open .phase-row:nth-child(1){opacity:1;transform:none;transition-delay:.12s}
+.acc-body.open .phase-row:nth-child(2){opacity:1;transform:none;transition-delay:.20s}
+.acc-body.open .phase-row:nth-child(3){opacity:1;transform:none;transition-delay:.28s}
+.acc-body.open .phase-row:nth-child(4){opacity:1;transform:none;transition-delay:.36s}
+.phase-tag{
+  font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
+  background:var(--mint-8);border:1px solid var(--mint-30);color:var(--mint);
+  border-radius:5px;padding:3px 10px;white-space:nowrap;flex-shrink:0;margin-top:2px;letter-spacing:.06em;
+}
+.phase-time{background:var(--amb-bg);border-color:var(--amb-bd);color:var(--amb)}
+.phase-text{font-size:13.5px;color:var(--t2);line-height:1.7}
+.motor-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:1.5rem 0}
+.motor-card{
+  background:var(--s3);border:1px solid rgba(255,255,255,.10);border-left:3px solid var(--mint);
+  border-radius:12px;padding:1.15rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+  opacity:0;transform:translateY(16px);
+  transition:opacity .45s ease,transform .5s var(--ease),background .22s ease,box-shadow .22s ease;
+}
+.acc-body.open .motor-card:nth-child(1){opacity:1;transform:none;transition-delay:.11s}
+.acc-body.open .motor-card:nth-child(2){opacity:1;transform:none;transition-delay:.19s}
+.acc-body.open .motor-card:nth-child(3){opacity:1;transform:none;transition-delay:.27s}
+.acc-body.open .motor-card:nth-child(4){opacity:1;transform:none;transition-delay:.35s}
+.motor-card:hover{background:var(--s4);box-shadow:0 8px 30px rgba(0,0,0,.45),0 0 50px rgba(46,232,160,.05)}
+.motor-head{
+  font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--mint);margin-bottom:.8rem;
+  text-shadow:0 0 14px rgba(46,232,160,.65),0 0 32px rgba(46,232,160,.30);
+}
+.motor-items{list-style:none;padding:0;margin:0}
+.motor-item{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:var(--t2);line-height:1.6;margin-bottom:.4rem}
+.motor-item::before{
+  content:'';width:4px;height:4px;border-radius:50%;background:var(--mint);opacity:.85;
+  flex-shrink:0;margin-top:8px;box-shadow:0 0 7px rgba(46,232,160,.75),0 0 16px rgba(46,232,160,.40);
+}
+.roi-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:1.5rem 0}
+.roi-card{
+  background:var(--s3);border:1px solid rgba(255,255,255,.10);border-radius:12px;padding:1.1rem;
+  display:flex;gap:12px;align-items:flex-start;box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+  opacity:0;transform:translateY(14px) scale(.97);
+  transition:opacity .45s ease,transform .5s var(--ease),border-color .22s ease,box-shadow .22s ease;
+}
+.acc-body.open .roi-card:nth-child(1){opacity:1;transform:none;transition-delay:.09s}
+.acc-body.open .roi-card:nth-child(2){opacity:1;transform:none;transition-delay:.15s}
+.acc-body.open .roi-card:nth-child(3){opacity:1;transform:none;transition-delay:.21s}
+.acc-body.open .roi-card:nth-child(4){opacity:1;transform:none;transition-delay:.27s}
+.acc-body.open .roi-card:nth-child(5){opacity:1;transform:none;transition-delay:.33s}
+.acc-body.open .roi-card:nth-child(6){opacity:1;transform:none;transition-delay:.39s}
+.roi-card:hover{border-color:var(--mint-30);box-shadow:0 8px 28px rgba(0,0,0,.45),0 0 60px rgba(46,232,160,.07)}
+.roi-icon{
+  font-size:18px;flex-shrink:0;line-height:1;width:38px;height:38px;
+  background:var(--mint-8);border:1px solid var(--mint-15);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+}
+.roi-text{font-size:13px;color:var(--t2);line-height:1.65}
+.roi-text strong{
+  font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:700;
+  letter-spacing:.02em;color:var(--mint);display:block;margin-bottom:4px;
+  text-shadow:0 0 10px rgba(46,232,160,.72),0 0 26px rgba(46,232,160,.38);
+}
+.invest-block{
+  background:var(--s3);border:1px solid rgba(255,255,255,.10);border-radius:14px;
+  padding:1.35rem 1.5rem;margin-bottom:1rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+  opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .55s var(--ease);
+}
+.acc-body.open .invest-block:nth-child(1){opacity:1;transform:none;transition-delay:.11s}
+.acc-body.open .invest-block:nth-child(2){opacity:1;transform:none;transition-delay:.24s}
+.invest-head{
+  font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;color:var(--mint);opacity:.70;
+  text-transform:uppercase;letter-spacing:.16em;margin-bottom:.9rem;padding-bottom:.65rem;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+.invest-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:9px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:13.5px;
+}
+.invest-row:last-of-type{border-bottom:none}
+.invest-lbl{color:var(--t2)}
+.invest-val{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:var(--t1)}
+.invest-total{
+  background:linear-gradient(135deg,rgba(46,232,160,.18) 0%,rgba(46,232,160,.07) 100%);
+  border:1px solid var(--mint);border-radius:14px;padding:1.5rem 1.75rem;
+  box-shadow:0 0 0 1px rgba(46,232,160,.10),0 0 50px rgba(46,232,160,.22),inset 0 1px 0 rgba(255,255,255,.14);
+  display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;
+}
+.invest-total-lbl{
+  font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--mint);
+}
+.invest-total-val{
+  font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;color:var(--mint);
+  text-shadow:0 0 28px rgba(46,232,160,.70),0 0 60px rgba(46,232,160,.40);letter-spacing:-.01em;line-height:1;
+}
+.invest-note{
+  font-size:11.5px;color:var(--t3);margin-top:.85rem;font-style:italic;line-height:1.65;
+  opacity:0;transition:opacity .4s ease .38s;
+}
+.acc-body.open .invest-note{opacity:1}
+.sig{
+  margin-top:2.25rem;padding:1.35rem 1.5rem;background:var(--s3);
+  border:1px solid rgba(255,255,255,.12);border-radius:14px;
+  display:flex;align-items:center;gap:16px;
+  opacity:0;transform:translateY(14px);transition:opacity .5s ease .12s,transform .55s var(--ease) .12s;
+}
+.acc-body.open .sig{opacity:1;transform:none}
+.sig-av{
+  width:52px;height:52px;border-radius:50%;flex-shrink:0;background:#0a1a12;
+  border:1.5px solid var(--mint-30);overflow:hidden;box-shadow:0 0 26px rgba(46,232,160,.14);
+}
+.sig-name{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--t1)}
+.sig-role{font-size:11.5px;color:var(--t2);margin-top:3px;line-height:1.4}
+.sig-co{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--mint);margin-top:6px;letter-spacing:.06em}
+.cta-wrap{
+  margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(46,232,160,.15);
+  display:flex;flex-direction:column;align-items:center;gap:.9rem;
+  opacity:0;transform:translateY(22px);transition:opacity .55s ease .40s,transform .6s var(--ease) .40s;
+}
+.acc-body.open .cta-wrap{opacity:1;transform:none}
+.cta-urgency{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:.1em;text-transform:uppercase;text-align:center}
+.cta-urgency strong{color:var(--mint);font-weight:700}
+.cta-btn{
+  position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:13px;
+  background:var(--mint);color:#010806;font-family:'Barlow Condensed',sans-serif;
+  font-size:19px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;
+  padding:19px 44px;border-radius:12px;text-decoration:none;cursor:pointer;
+  box-shadow:0 0 60px rgba(46,232,160,.42),0 0 120px rgba(46,232,160,.18),0 12px 44px rgba(0,0,0,.55);
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+.cta-btn::before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(130deg,rgba(255,255,255,.22) 0%,transparent 52%)}
+.cta-btn::after{
+  content:'';position:absolute;inset:-5px;border-radius:15px;pointer-events:none;
+  border:1.5px solid rgba(46,232,160,.48);animation:ring 3s ease-in-out infinite;
+}
+@keyframes ring{0%,100%{opacity:.35;transform:scale(1)}50%{opacity:1;transform:scale(1.022)}}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 0 90px rgba(46,232,160,.55),0 0 160px rgba(46,232,160,.25),0 16px 56px rgba(0,0,0,.65)}
+.cta-btn:active{transform:translateY(0)}
+.cta-btn span,.cta-btn svg{position:relative;z-index:1}
+.cta-btn svg{width:20px;height:20px;flex-shrink:0}
+.validity{
+  font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t3);
+  margin-top:1.5rem;text-align:center;letter-spacing:.07em;text-transform:uppercase;
+  opacity:0;transition:opacity .4s ease .55s;
+}
+.acc-body.open .validity{opacity:1}
+@media(max-width:640px){
+  .hero{padding:2.5rem 1.5rem 2.25rem}.hero-title{font-size:34px}
+  .meta-grid,.motor-grid,.roi-grid{grid-template-columns:1fr 1fr}
+  .pain-grid{grid-template-columns:1fr}.nav-tagline{display:none}
+  .page{padding:1.75rem .875rem 5rem}.acc-content{padding:1.4rem 1.1rem 1.75rem}
+}
+@media(max-width:440px){
+  .meta-grid,.motor-grid,.roi-grid{grid-template-columns:1fr}
+  .hero-title{font-size:26px}.invest-total-val{font-size:28px}
+  .cta-btn{font-size:16px;padding:16px 28px}.pain-num{font-size:44px}
+}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-dot">
+      <img src="https://raw.githubusercontent.com/abelzapatav/Media-/main/monograma-OCO-AI.jpg" alt="OCO AI">
+    </div>
+    <div>
+      <div class="nav-name">OCO AI</div>
+      <div class="nav-tagline">Agentes de IA &amp; Automatización de Procesos</div>
+    </div>
+  </div>
+  <span class="nav-badge">Automatización</span>
+</nav>
+<div class="page">
+  <div class="hero reveal">
+    <div class="hero-dots"></div>
+    <div class="hero-orb1"></div>
+    <div class="hero-orb2"></div>
+    <div class="hero-live"><span class="pulse"></span>Propuesta personalizada</div>
+    <div class="hero-title">el Proyecto de Automatización Inteligente de Ventas y <em>Atención</em></div>
+    <div class="hero-line"></div>
+    <div class="hero-sub">OCO AI — Miguel Soler — 08 de abril de 2026</div>
+    <div class="meta-grid">
+      <div class="mc"><div class="ml">Cliente</div><div class="mv">Miguel Soler</div></div>
+      <div class="mc"><div class="ml">Proyecto</div><div class="mv">el Proyecto de Automatización In…</div></div>
+      <div class="mc"><div class="ml">Tipo</div><div class="mv">Automatización</div></div>
+      <div class="mc"><div class="ml">Preparado por</div><div class="mv">Abel Zapata</div></div>
+    </div>
+    <a href="https://calendly.com/1abel-zapata/ocoai" target="_blank" rel="noopener" class="hero-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2"/>
+        <line x1="16" y1="2" x2="16" y2="6"/>
+        <line x1="8" y1="2" x2="8" y2="6"/>
+        <line x1="3" y1="10" x2="21" y2="10"/>
+      </svg>
+      Agenda tu Reunión
+    </a>
+  </div>
+  
+  <div class="acc">
+    <button class="acc-hd" onclick="tog(this)" aria-expanded="false">
+      <div class="acc-l">
+        <div class="acc-ico" style="background:var(--red-bg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+               stroke="rgba(252,165,165,.75)" stroke-width="1.75"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </div>
+        <div>
+          <div class="acc-num">Sección 01</div>
+          <div class="acc-title">Resumen ejecutivo</div>
+          <div class="acc-sub">Diagnóstico estratégico y solución propuesta</div>
+        </div>
+      </div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </button>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="acc-content">
+          <p class="bp">Tras nuestra reunión con ZAPATODIRECTO, identificamos una oportunidad clara de mejora en el proceso de atención y gestión de ventas a través de canales digitales, especialmente WhatsApp. Actualmente invierten horas de alto valor en tareas de bajo impacto estratégico: gestión manual de consultas, pedidos, stock y seguimiento al cliente.</p>
+<p class="bp"><strong>Nuestra solución:</strong> Automatización integral, segura y gradual, diseñada para maximizar eficiencia, reducir tiempo administrativo y permitir un crecimiento escalable.</p>
+<div class="pain-grid">
+<div class="pain-card"><div class="pain-num">01</div><p class="pain-text">Desgaste operativo y sobrecarga en un equipo pequeño</p></div>
+<div class="pain-card"><div class="pain-num">02</div><p class="pain-text">Pérdida de tiempo frente a actividades clave como captar productos y negociar con proveedores</p></div>
+<div class="pain-card"><div class="pain-num">03</div><p class="pain-text">Limitaciones para crecer y escalar sin aumentar plantilla o recursos</p></div>
+</div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc">
+    <button class="acc-hd" onclick="tog(this)" aria-expanded="false">
+      <div class="acc-l">
+        <div class="acc-ico" style="background:var(--mint-8)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+               stroke="rgba(46,232,160,.75)" stroke-width="1.75"
+               stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </div>
+        <div>
+          <div class="acc-num">Sección 02</div>
+          <div class="acc-title">Propuesta de solución</div>
+          <div class="acc-sub">Arquitectura, fases y motores del sistema</div>
+        </div>
+      </div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </button>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="acc-content">
+          <p class="bp">OCO AI no implementará automatización genérica, sino una solución específica adaptada a su estructura actual y necesidades de negocio.</p>
+<div class="phase-list">
+<div class="phase-row"><span class="phase-tag">Fase A</span><span class="phase-text">Diagnóstico y conexión multicanal: integración de WhatsApp, sitio web y redes para centralizar la atención</span></div>
+<div class="phase-row"><span class="phase-tag">Fase B</span><span class="phase-text">Automatización de la atención: chatbot IA para preguntas frecuentes, asesoría de producto y seguimiento automático</span></div>
+<div class="phase-row"><span class="phase-tag">Fase C</span><span class="phase-text">Simplificación de la venta: proceso comercial automatizado hasta el punto óptimo, con transferencia al equipo solo para cierres</span></div>
+<div class="phase-row"><span class="phase-tag">Fase D</span><span class="phase-text">Capacitación y transición: acompañamiento en pruebas, ajustes y puesta a punto para la operación diaria</span></div>
+</div>
+<h3 class="sh">ARQUITECTURA DE LA SOLUCIÓN</h3>
+<div class="motor-grid"><div class="motor-card"><div class="motor-head">Ventana Única de Atención</div><ul class="motor-items"><li class="motor-item">Chatwoot CRM para recepción integrada de mensajes (WhatsApp, web, Facebook)</li><li class="motor-item">Automatización de respuestas básicas y frecuentes</li><li class="motor-item">Redireccionamiento inteligente según etapa del cliente</li><li class="motor-item">Registro y trazabilidad total de conversaciones</li></ul></div><div class="motor-card"><div class="motor-head">IA en el Chatbot Web</div><ul class="motor-items"><li class="motor-item">Asesoría de producto contextual según catálogo y stock</li><li class="motor-item">Gestión de consultas de seguimiento y dudas post-venta</li></ul></div><div class="motor-card"><div class="motor-head">Proceso Automatizado de Pre-Venta</div><ul class="motor-items"><li class="motor-item">Filtrado de interesados y pre-cualificación automática</li><li class="motor-item">Recopilación de datos para prellenar pedidos sin intervención humana</li></ul></div><div class="motor-card"><div class="motor-head">Supervisión y Escalado Humano</div><ul class="motor-items"><li class="motor-item">Transferencia óptima al equipo para cierres sensibles o complejos</li></ul></div></div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc">
+    <button class="acc-hd" onclick="tog(this)" aria-expanded="false">
+      <div class="acc-l">
+        <div class="acc-ico" style="background:var(--mint-8)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+               stroke="rgba(46,232,160,.75)" stroke-width="1.75"
+               stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+          </svg>
+        </div>
+        <div>
+          <div class="acc-num">Sección 03</div>
+          <div class="acc-title">Retorno de inversión</div>
+          <div class="acc-sub">ROI e impacto medible en el negocio</div>
+        </div>
+      </div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </button>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="acc-content">
+          <p class="bp">Implementar esta solución transforma un gasto operativo en un activo digital escalable que trabaja las 24 horas.</p>
+<div class="roi-grid">
+<div class="roi-card"><div class="roi-icon">⚡</div><div class="roi-text"><strong>60–80% reducción</strong> de carga operativa manual desde el primer mes</div></div>
+<div class="roi-card"><div class="roi-icon">🔽</div><div class="roi-text"><strong>Cero retrasos</strong> por gestión manual de inventario o respuestas al cliente</div></div>
+<div class="roi-card"><div class="roi-icon">📈</div><div class="roi-text"><strong>3x capacidad</strong> de atención y ventas sin necesidad de incrementar plantilla</div></div>
+<div class="roi-card"><div class="roi-icon">⏱️</div><div class="roi-text"><strong>Tiempo estratégico</strong> liberado para producto, proveedores e innovación</div></div>
+</div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc">
+    <button class="acc-hd" onclick="tog(this)" aria-expanded="false">
+      <div class="acc-l">
+        <div class="acc-ico" style="background:var(--amb-bg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+               stroke="rgba(245,158,11,.75)" stroke-width="1.75"
+               stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+        </div>
+        <div>
+          <div class="acc-num">Sección 04</div>
+          <div class="acc-title">Plan de implementación</div>
+          <div class="acc-sub">Metodología ágil y cronograma de entrega</div>
+        </div>
+      </div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </button>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="acc-content">
+          <p class="bp">Trabajamos bajo un modelo de entrega ágil orientado a resultados rápidos (Time-to-Value).</p>
+<div class="phase-list">
+<div class="phase-row"><span class="phase-tag phase-time">Primera semana</span><span class="phase-text">integración de canales y definición de flujos clave</span></div>
+<div class="phase-row"><span class="phase-tag phase-time">Semana 2 y 3</span><span class="phase-text">desarrollo, conexión de bots e IA, pruebas técnicas iniciales</span></div>
+<div class="phase-row"><span class="phase-tag phase-time">Semana 4</span><span class="phase-text">pruebas con usuarios reales, ajustes y personalización fina</span></div>
+<div class="phase-row"><span class="phase-tag phase-time">Semana 5</span><span class="phase-text">capacitación, puesta en marcha y optimización en vivo</span></div>
+</div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc">
+    <button class="acc-hd" onclick="tog(this)" aria-expanded="false">
+      <div class="acc-l">
+        <div class="acc-ico" style="background:var(--mint-8)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+               stroke="rgba(46,232,160,.75)" stroke-width="1.75"
+               stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="acc-num">Sección 05</div>
+          <div class="acc-title">Inversión estratégica</div>
+          <div class="acc-sub">Estructura de costos y condiciones de pago</div>
+        </div>
+      </div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </button>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="acc-content">
+          <p class="bp">La inversión ha sido estructurada en base al retorno que esta solución generará en la empresa año tras año.</p>
+<div class="invest-block"><div class="invest-head">Implementación y Configuración Única</div><div class="invest-row"><span class="invest-lbl">Inversión</span><span class="invest-val">USD 1,550</span></div>
+<div class="invest-row"><span class="invest-lbl">Descuento por integración multicanal</span><span class="invest-val">12.9%</span></div>
+<div class="invest-total"><span class="invest-total-lbl">Inversión Final</span><span class="invest-total-val">USD 1,349</span></div>
+<div class="invest-row"><span class="invest-lbl">Condiciones</span><span class="invest-val">50% al inicio del proyecto, 50% a la entrega y conformidad</span></div></div>
+<div class="invest-block"><div class="invest-head">Mantenimiento y Licenciamiento Mensual</div><div class="invest-row"><span class="invest-lbl">Inversión mensual</span><span class="invest-val">USD 49/mes</span></div>
+<div class="invest-total"><span class="invest-total-lbl">Inversión Final mensual</span><span class="invest-total-val">USD 49/mes</span></div>
+<p class="invest-note">Incluye soporte técnico, adaptaciones menores continuas y acceso preferente a mejoras de IA. Cancelable en cualquier momento sin penalizaciones.</p></div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc">
+    <button class="acc-hd" onclick="tog(this)" aria-expanded="false">
+      <div class="acc-l">
+        <div class="acc-ico" style="background:var(--mint-8)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+               stroke="rgba(46,232,160,.75)" stroke-width="1.75"
+               stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </div>
+        <div>
+          <div class="acc-num">Sección 06</div>
+          <div class="acc-title">Próximos pasos</div>
+          <div class="acc-sub">Cómo avanzamos juntos</div>
+        </div>
+      </div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </button>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="acc-content">
+          <p class="bp">Estamos listos para llevar el proyecto de Automatización Inteligente de Ventas y Atención de ZAPATODIRECTO adelante.</p>
+<ol class="nlist"><li class="ni">Revise esta propuesta detenidamente</li><li class="ni">Agendemos una reunión breve para aclarar dudas o ajustar detalles</li><li class="ni">Acordamos alcance e inversión, firmamos el contrato y realizamos el pago inicial del 50% para iniciar</li></ol>
+<p class="bp"></p>
+          
+  <div class="sig">
+    <div class="sig-av">
+      <img src="https://raw.githubusercontent.com/abelzapatav/Media-/main/img_abel_propuesta.png"
+           alt="Abel Zapata"
+           style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+    </div>
+    <div>
+      <div class="sig-name">Abel Zapata</div>
+      <div class="sig-role">Founder &amp; Automation Consultant · Omega AI Consulting</div>
+      <div class="sig-co">&#937;CO AI</div>
+    </div>
+  </div>
+  <div class="cta-wrap">
+    <p class="cta-urgency">Propuesta válida por <strong>15 días</strong> · Cupos limitados este mes</p>
+    <a href="https://calendly.com/1abel-zapata/ocoai" target="_blank" rel="noopener" class="cta-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+           stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2"/>
+        <line x1="16" y1="2" x2="16" y2="6"/>
+        <line x1="8" y1="2" x2="8" y2="6"/>
+        <line x1="3" y1="10" x2="21" y2="10"/>
+      </svg>
+      <span>Agenda tu Reunión</span>
+    </a>
+  </div>
+  <p class="validity">Propuesta válida por 15 días calendario desde su emisión · 08 de abril de 2026</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function tog(btn){
+  var acc=btn.parentNode;
+  while(acc&&!acc.classList.contains('acc'))acc=acc.parentNode;
+  var body=btn.nextElementSibling;
+  var open=body.classList.toggle('open');
+  btn.setAttribute('aria-expanded',open);
+  acc.classList.toggle('acc--open',open);
+  if(open){
+    document.querySelectorAll('.acc').forEach(function(other){
+      if(other!==acc){
+        var ob=other.querySelector('.acc-body');
+        var hd=other.querySelector('.acc-hd');
+        if(ob)ob.classList.remove('open');
+        if(hd)hd.setAttribute('aria-expanded','false');
+        other.classList.remove('acc--open');
+      }
+    });
+  }
+}
+(function(){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });
+  },{threshold:.05,rootMargin:'0px 0px -28px 0px'});
+  document.querySelectorAll('.acc').forEach(function(el,i){
+    el.style.setProperty('--ai',i);io.observe(el);
+  });
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  var prog=document.getElementById('prog');
+  window.addEventListener('scroll',function(){
+    var s=document.documentElement.scrollTop;
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    prog.style.width=(h>0?Math.min(s/h*100,100):0)+'%';
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
